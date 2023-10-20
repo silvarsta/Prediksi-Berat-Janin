@@ -3,9 +3,6 @@ from tkinter import Toplevel, Canvas, filedialog
 from PIL import Image, ImageTk, ImageDraw
 from scipy.integrate import quad
 
-
-
-
 # Variabel global
 points = []
 lines = []
@@ -27,8 +24,7 @@ def open_image():
         new_window = Toplevel(root)
         new_window.title("Gambar")
 
-        canvas = Canvas(new_window, width=image_copy.width,
-                        height=image_copy.height)
+        canvas = Canvas(new_window, width=image_copy.width, height=image_copy.height)
         canvas.pack()
         canvas.create_image(0, 0, anchor=tk.NW, image=img)
         canvas.image = img
@@ -52,13 +48,13 @@ def open_image():
                     line[0][1],
                     line[1][0],
                     line[1][1],
-                    fill="blue",
-                    tags="blue_lines",
+                    fill="red",
+                    tags="red_lines",
+                    width=4
                 )
 
                 lines.append(line)  # Menyimpan garis yang digambar
-                length_in_cm = calculate_length(
-                    x1, y1, x2, y2) / konversi_piksel_ke_cm
+                length_in_cm = calculate_length(x1, y1, x2, y2) / konversi_piksel_ke_cm
                 line_lengths.append(
                     length_in_cm
                 )  # Menyimpan panjang garis dalam sentimeter
@@ -77,15 +73,15 @@ def open_image():
             x, y = event.x, event.y
             points.append((x, y))
             canvas.create_oval(
-                x - 2, y - 2, x + 2, y + 2, fill="red", tags="red_points"
+                x - 2, y - 2, x + 2, y + 2, fill="blue", tags="blue_points"
             )
             if len(points) == 2:
                 draw_line()
                 points.clear()  # Mengosongkan daftar titik setelah menggambar garis
 
         def clear_canvas():
-            canvas.delete("red_points")
-            canvas.delete("blue_lines")
+            canvas.delete("blue_points")
+            canvas.delete("red_lines")
 
             result_label.config(text="")
             points.clear()
@@ -94,8 +90,7 @@ def open_image():
 
         canvas.bind("<Button-1>", click)
 
-        clear_button = tk.Button(
-            new_window, text="Hapus", command=clear_canvas)
+        clear_button = tk.Button(new_window, text="Hapus", command=clear_canvas)
         clear_button.pack()
 
         result_label = tk.Label(new_window, text="", font=("Helvetica", 12))
@@ -174,8 +169,7 @@ button_frame = tk.Frame(root)
 button_frame.pack()
 
 # Tombol untuk menghitung ulang
-hitung_ulang_button = tk.Button(
-    button_frame, text="Hitung Ulang", command=hitung_ulang)
+hitung_ulang_button = tk.Button(button_frame, text="Hitung Ulang", command=hitung_ulang)
 hitung_ulang_button.pack(side="left", padx=5)
 
 # Tombol untuk menghitung fungsi
