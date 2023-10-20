@@ -118,11 +118,13 @@ def hitung_fungsi():
         volume, _ = quad(lambda x: f(x) ** 2, 0, panjangBayi)
         volume = 22 / 7 * volume
 
+# Ubah hasil volume dari gram menjadi kilogram
+        volume_kilogram = volume / 1000
+
         def superscript(text):
             return text.replace("1", "¹").replace("2", "²").replace("3", "³")
 
-        result_volume_label.config(text=f"Berat Bayi = {volume:.2f} gram")
-
+        result_volume_label.config(text=f"Berat Bayi = {volume_kilogram:.4f} kilogram")
 
 # Fungsi menghitung ulang
 def hitung_ulang():
