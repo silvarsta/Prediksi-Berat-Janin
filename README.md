@@ -4,7 +4,7 @@ Proyek UTS Matematika Komputer 3 - Prediksi berat janin menggunakan prinsip perh
 
 # Fitur-fitur
 1. Buka Gambar: Pilih gambar (misalnya, hasil USG) untuk dianalisis.
-2. Gambar Garis: Tandai titik-titik tertentu pada gambar untuk mengukur jarak (dalam piksel).
+2. Gambar Garis: Tandai titik-titik tertentu pada gambar untuk mengukur jarak.
 3. Hitung Panjang: Menghitung dan menampilkan otomatis panjang garis yang digambar dalam sentimeter.
 4. Estimasi Berat Bayi: Masukkan panjang bayi dan diameter kepala untuk menghitung estimasi berat bayi.
 5. Hapus dan Hitung Ulang: Bersihkan kanvas dan masukan untuk memulai perhitungan baru.
